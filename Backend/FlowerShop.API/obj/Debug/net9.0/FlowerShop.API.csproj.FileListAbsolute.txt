@@ -1,0 +1,8 @@
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.csproj.AssemblyReference.cache
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\rpswa.dswa.cache.json
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.GeneratedMSBuildEditorConfig.editorconfig
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.AssemblyInfoInputs.cache
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.AssemblyInfo.cs
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.csproj.CoreCompileInputs.cache
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.MvcApplicationPartsAssemblyInfo.cs
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.MvcApplicationPartsAssemblyInfo.cache
