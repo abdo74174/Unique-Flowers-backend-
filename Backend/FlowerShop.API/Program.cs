@@ -59,10 +59,10 @@ app.Use(async (context, next) =>
     {
         context.Response.StatusCode = 500;
         context.Response.ContentType = "application/json";
-        await context.Response.WriteAsJsonAsync(new { 
+        await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new { 
             message = "Internal Server Error. Please contact admin.",
             error = ex.Message 
-        });
+        }));
     }
 });
 
