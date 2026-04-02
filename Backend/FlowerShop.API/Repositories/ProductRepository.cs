@@ -42,7 +42,7 @@ namespace FlowerShop.API.Repositories
 
         public async Task UpdateAsync(Product product)
         {
-            _context.Entry(product).State = EntityState.Modified;
+            _context.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 

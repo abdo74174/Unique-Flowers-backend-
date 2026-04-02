@@ -11,10 +11,12 @@ namespace FlowerShop.API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;
+        private readonly IImageService _imageService;
 
-        public ProductsController(IProductService service)
+        public ProductsController(IProductService service, IImageService imageService)
         {
             _service = service;
+            _imageService = imageService;
         }
 
         // GET: api/products
@@ -36,9 +38,16 @@ namespace FlowerShop.API.Controllers
 
         // POST: api/products
         [HttpPost]
-        public async Task<ActionResult<ProductDto>> CreateProduct([FromBody] CreateProductDto productDto)
+        public async Task<ActionResult<ProductDto>> CreateProduct([FromForm] CreateProductDto productDto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            if (productDto.ImageFile != null)
+            {
+                var uploadResult = await _imageService.AddImageAsync(productDto.ImageFile);
+                if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
+                productDto.ImageUrl = uploadResult.SecureUrl.ToString();
+            }
 
             var createdProduct = await _service.AddProductAsync(productDto);
             return CreatedAtAction(nameof(GetProduct), new { id = createdProduct.Id }, createdProduct);
@@ -46,12 +55,19 @@ namespace FlowerShop.API.Controllers
 
         // PUT: api/products/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromBody] CreateProductDto productDto)
+        public async Task<IActionResult> UpdateProduct(int id, [FromForm] CreateProductDto productDto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var existingProduct = await _service.GetProductByIdAsync(id);
             if (existingProduct == null) return NotFound();
+
+            if (productDto.ImageFile != null)
+            {
+                var uploadResult = await _imageService.AddImageAsync(productDto.ImageFile);
+                if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
+                productDto.ImageUrl = uploadResult.SecureUrl.ToString();
+            }
 
             await _service.UpdateProductAsync(id, productDto);
             return NoContent();
