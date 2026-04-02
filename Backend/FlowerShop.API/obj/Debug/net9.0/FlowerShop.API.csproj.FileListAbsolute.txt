@@ -165,4 +165,5 @@ E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\refint\FlowerSh
 E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.pdb
 E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\FlowerShop.API.genruntimeconfig.cache
 E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\ref\FlowerShop.API.dll
-E:\ITI\projects\Flower 2\Backend\FlowerShop.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\bin\Debug\net9.0\CloudinaryDotNet.dll
+E:\ITI\projects\Flower 2\Backend\FlowerShop.API\bin\Debug\net9.0\Newtonsoft.Json.dll

@@ -46,10 +46,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Enable Routing
+app.UseRouting();
 
-// Use CORS
+// Use CORS - Move before HttpsRedirection and other middleware
 app.UseCors("AllowAnyOrigin");
+
+// app.UseHttpsRedirection(); // Commented out for local development to avoid redirect issues with CORS
 
 app.UseAuthorization();
 
