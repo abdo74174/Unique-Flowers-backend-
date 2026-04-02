@@ -1,0 +1,17 @@
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docattachments
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# External packages/libraries
+packages/
+node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db
