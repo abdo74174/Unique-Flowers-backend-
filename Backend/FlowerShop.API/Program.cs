@@ -26,7 +26,7 @@ builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection(
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOrigin",
-        builder => builder.AllowAnyOrigin()
+        builder => builder.SetIsOriginAllowed(_ => true) // Allow any origin, even those with credentials if needed (later)
                           .AllowAnyMethod()
                           .AllowAnyHeader());
 });
@@ -39,6 +39,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Use CORS - MUST be before any other middleware that might return a response
+app.UseCors("AllowAnyOrigin");
+
 // Enable Swagger UI in Development
 if (app.Environment.IsDevelopment())
 {
@@ -49,10 +52,7 @@ if (app.Environment.IsDevelopment())
 // Enable Routing
 app.UseRouting();
 
-// Use CORS - Move before HttpsRedirection and other middleware
-app.UseCors("AllowAnyOrigin");
-
-// app.UseHttpsRedirection(); // Commented out for local development to avoid redirect issues with CORS
+// app.UseHttpsRedirection(); 
 
 app.UseAuthorization();
 
