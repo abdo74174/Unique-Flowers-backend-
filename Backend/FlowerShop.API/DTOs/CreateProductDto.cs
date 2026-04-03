@@ -13,8 +13,8 @@ namespace FlowerShop.API.DTOs
         [StringLength(200)]
         public string TitleAr { get; set; }
 
-        public string DescriptionEn { get; set; }
-        public string DescriptionAr { get; set; }
+        public string? DescriptionEn { get; set; }
+        public string? DescriptionAr { get; set; }
 
         [Range(0, 10000.00)]
         public decimal Price { get; set; }

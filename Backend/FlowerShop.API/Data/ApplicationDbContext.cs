@@ -14,7 +14,9 @@ namespace FlowerShop.API.Data
         {
             // Enhancement: Query filter for soft delete
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsDeleted);
-
+            modelBuilder.Entity<Product>()
+    .Property(p => p.Price)
+    .HasPrecision(18, 2);
             base.OnModelCreating(modelBuilder);
         }
 

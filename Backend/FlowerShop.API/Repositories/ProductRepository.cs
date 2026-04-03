@@ -25,7 +25,7 @@ namespace FlowerShop.API.Repositories
                 query = query.Where(p => p.Category == category);
             }
 
-            return await query.ToListAsync();
+            return await query.Where(p => !p.IsDeleted).ToListAsync();
         }
 
         public async Task<Product> GetByIdAsync(int id)
