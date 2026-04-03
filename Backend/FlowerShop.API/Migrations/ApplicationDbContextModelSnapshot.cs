@@ -53,6 +53,7 @@ namespace FlowerShop.API.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("TitleAr")
@@ -67,7 +68,7 @@ namespace FlowerShop.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 #pragma warning restore 612, 618
         }
